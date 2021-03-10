@@ -7,7 +7,7 @@ def main():
     print('Someone accessed')
     return 'Hi'
 
-@app.route('/get_image')
+@app.route('/pepelove.jpg')
 def get_image():
     requester = request.remote_addr
     print('IP: ' + request.headers['X-Forwarded-For'])

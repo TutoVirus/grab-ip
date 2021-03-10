@@ -10,7 +10,7 @@ def main():
 @app.route('/get_image')
 def get_image():
     requester = request.remote_addr
-    print(requester)
+    print('IP: ' + request.headers['X-Forwarded-For'])
         
     return send_file('img.jpg')
 

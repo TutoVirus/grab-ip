@@ -1,4 +1,5 @@
 from flask import Flask, request, send_file
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -10,7 +11,11 @@ def main():
 @app.route('/get_image')
 def get_image():
     requester = request.remote_addr
-    print(requester)
+    current_datetime = datetime.now()
+    
+    with open('logs.txt', 'a') as f:
+        f.write(f'{current_datetime} - {requester}\n')
+        
     return send_file('img.jpg')
 
 if __name__ == '__main__':
